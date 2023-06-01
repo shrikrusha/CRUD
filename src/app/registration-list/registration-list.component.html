@@ -1,0 +1,77 @@
+<mat-form-field appearance="outline" style="margin-top: 50px;">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  </mat-form-field>
+<div class="mat-elevation-z8" *ngIf="dataSource?.data?.length">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef> Firstname </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef>Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef> Mobile </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="bmiResult">
+        <th mat-header-cell *matHeaderCellDef> Trainer Require </th>
+        <td mat-cell *matCellDef="let element"> {{element.requireTrainer}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Have Gym Before</th>
+        <td mat-cell *matCellDef="let element"> {{element.haveGymBefore}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="packages">
+        <th mat-header-cell *matHeaderCellDef> Packages </th>
+        <td mat-cell *matCellDef="let element"> {{element.packages}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="enquiryDate">
+        <th mat-header-cell *matHeaderCellDef> Enquiry Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.enquiryDate | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element"> 
+             <button class="btn btn-primary btn-sm me-3" routerLink="/detail/{{element.id}}"><i class="fa fa-eye" style="font-size: 1.5em;"></i></button>
+             <!-- <button class="btn btn-success btn-sm me-3"><i class="fa fa-plus-square" style="font-size: 1.5em;"></i></button> -->
+             <button class="btn btn-warning btn-sm me-3" (click)="edit(element.id)"><i class="fa fa-pencil" style="font-size: 1.5em;"></i></button>
+             <button class="btn btn-danger btn-sm" (click)="delete(element.id)"><i class="fa fa-trash-o" style="font-size: 1.5em;"></i></button>
+             
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  

@@ -1,0 +1,14 @@
+.example-card {
+    max-width: 800px;
+    margin-top: 6em;
+    margin: 0 auto;
+  }
+  
+  .example-header-image {
+    background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');
+    background-size: cover;
+  }
+.mdc-list-item__content {
+    display: flex;
+    align-items: center;
+}

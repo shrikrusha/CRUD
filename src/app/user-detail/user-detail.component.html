@@ -1,0 +1,77 @@
+<mat-card class="example-card mt-4">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{userDetail.firstname}}</mat-card-title>
+      <mat-card-subtitle>{{userDetail.lastname}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;">Email : </div>
+                    <div> {{ userDetail.email}}</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;">Mobile :</div>
+                    <div>{{userDetail.mobile}}</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;">Weight :</div>
+                    <div>{{userDetail.weight}}</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;">Height :</div>
+                    <div>{{userDetail.height}}</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;"> BMI :</div>
+                    <div>{{userDetail.bmi}}</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;">BMI Result :</div>
+                    <div>{{userDetail.bmiResult}}</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;">Gender :</div>
+                    <div>{{userDetail.gender}}</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;">Package :</div>
+                    <div>{{userDetail.packages}}</div>
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="d-flex" style="gap:4px">
+                    <div style="font-weight: 500;">Trainer : </div>
+                    <div>{{userDetail.requireTrainer}}</div>
+                </div>
+            </mat-list-item>
+          </mat-list>
+          <div style="padding: 0 16px;">
+            <div style="font-weight: 500;">Goal :</div>
+            <mat-chip-set
+            class="example-chip"
+            >
+                <mat-chip
+                    class="example-box"
+                    *ngFor="let row of userDetail.important">
+                    {{row}}
+                </mat-chip>
+            </mat-chip-set>
+          </div>
+    </mat-card-content>
+  </mat-card>
