@@ -1,11 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from '../models/user.model';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registration-list',
@@ -16,8 +13,6 @@ export class RegistrationListComponent implements OnInit{
 
   public dataSource!:MatTableDataSource<User>;
   public users!:User[];
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
   displayedColumns:string[]= ['id','firstname','lastname','email','mobile','bmiResult','gender','packages','enquiryDate','action'];
 
   constructor(private api:ApiService, private router:Router, private activatedroute:ActivatedRoute){}
@@ -27,11 +22,11 @@ export class RegistrationListComponent implements OnInit{
   }
 
   getUsers(){
+  
     this.api.getRegistration().subscribe(res=>{
       this.users=res;
+      debugger
       this.dataSource = new MatTableDataSource(this.users);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort=this.sort;
     })
   }
   applyFilter(event: Event) {
@@ -42,7 +37,6 @@ export class RegistrationListComponent implements OnInit{
     this.router.navigate(['update',id])
   }
   delete(id:number){
-    
     this.api.deleteRegistration(id).subscribe(resp=>{
      this.getUsers();
     })

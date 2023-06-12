@@ -197,61 +197,21 @@
       "id": 10
     },
     {
-      "firstname": "Kirestin",
-      "lastname": "Russell",
-      "email": "wozygodir@mailinator.com",
-      "mobile": "818",
-      "weight": "9876543210",
-      "height": "1",
-      "bmi": 54,
-      "bmiResult": "Obses",
+      "firstname": "Oprah",
+      "lastname": "Spencer",
+      "email": "pavygah@mailinator.com",
+      "mobile": "506",
+      "weight": "90",
+      "height": "2",
+      "bmi": 22.5,
+      "bmiResult": "Normalweight",
       "gender": "Female",
       "requireTrainer": "Yes",
-      "packages": "Yearly",
-      "important": [
-        "Shugar Craving Body"
-      ],
-      "haveGymBefore": "No",
-      "enquiryDate": "1998-09-09T18:30:00.000Z",
+      "packages": "",
+      "important": "",
+      "haveGymBefore": "Yes",
+      "enquiryDate": "1981-08-23T18:30:00.000Z",
       "id": 11
-    },
-    {
-      "firstname": "Kirestin",
-      "lastname": "Russell",
-      "email": "wozygodir@mailinator.com",
-      "mobile": "818",
-      "weight": "9876543210",
-      "height": "1",
-      "bmi": 54,
-      "bmiResult": "Obses",
-      "gender": "Female",
-      "requireTrainer": "Yes",
-      "packages": "Yearly",
-      "important": [
-        "Shugar Craving Body"
-      ],
-      "haveGymBefore": "No",
-      "enquiryDate": "1998-09-09T18:30:00.000Z",
-      "id": 12
-    },
-    {
-      "firstname": "Kirestin",
-      "lastname": "Russell",
-      "email": "wozygodir@mailinator.com",
-      "mobile": "9876543210",
-      "weight": "54",
-      "height": "1",
-      "bmi": 54,
-      "bmiResult": "Obses",
-      "gender": "Female",
-      "requireTrainer": "Yes",
-      "packages": "Quarterly",
-      "important": [
-        "Shugar Craving Body"
-      ],
-      "haveGymBefore": "No",
-      "enquiryDate": "1998-09-09T18:30:00.000Z",
-      "id": 13
     }
   ]
 }

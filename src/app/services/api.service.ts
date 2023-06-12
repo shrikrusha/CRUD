@@ -6,7 +6,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl:string = 'http://localhost:3000/enquiry'
+  private baseUrl:string = 'http://localhost:3001/enquiry'
   constructor(private httpclient:HttpClient) { }
 
   //add data to json server
@@ -15,7 +15,7 @@ export class ApiService {
   }
 
    //get data from json server
-   getRegistration(){
+   getRegistration(){ 
     return this.httpclient.get<User[]>(this.baseUrl);
   }
 
