@@ -14,6 +14,7 @@ export class CreateRegistrationComponent implements OnInit{
   public registerForm!:FormGroup;
   public userIdToUpdate!:number;
   public isUpdateActive:boolean=false;
+  
   constructor(private fb:FormBuilder,  private api:ApiService, private activatedrout:ActivatedRoute, private router:Router){
 
   }
