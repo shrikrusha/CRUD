@@ -19,6 +19,15 @@ export class CreateRegistrationComponent implements OnInit{
 
   }
   ngOnInit(): void {
+    this.activatedrout.params.subscribe(val=>{
+      this.userIdToUpdate=val['id'];
+     
+    })
+
+    if(this.userIdToUpdate){
+      this.getUsers();
+    }
+
     this.registerForm=this.fb.group({
       firstname:this.fb.control('',Validators.compose([Validators.required, Validators.minLength(3)])),
       lastname:this.fb.control('',Validators.compose([Validators.required,Validators.minLength(3)])),
@@ -39,13 +48,13 @@ export class CreateRegistrationComponent implements OnInit{
       this.calculateBmi(res)
     })
 
-    this.activatedrout.params.subscribe(val=>{
-      this.userIdToUpdate=val['id'];
-      this.api.getRegistrationId(this.userIdToUpdate).subscribe(resp=>{
-        this.isUpdateActive=true;
-        this.fillFormToUpdate(resp);
-       
-      })
+    
+  }
+  getUsers(){
+    this.api.getRegistrationId(this.userIdToUpdate).subscribe(resp=>{
+      this.isUpdateActive=true;
+      this.fillFormToUpdate(resp);
+     
     })
   }
   public packages = ["Monthly","Quarterly","Yearly"];
@@ -72,8 +81,7 @@ export class CreateRegistrationComponent implements OnInit{
     }
   }
 
-  calculateBmi(heightValue:any){
-    debugger
+  calculateBmi(heightValue:any){  
     const weight = this.registerForm.value.weight;
     const height = heightValue;
     const bmi = weight/(height*height);
@@ -113,12 +121,15 @@ export class CreateRegistrationComponent implements OnInit{
     // 
     
   }
-  update(){
-    this.api.updateRegistration(this.userIdToUpdate,this.registerForm.value).subscribe(result=>{
+  update() {
+    this.api.updateRegistration(this.userIdToUpdate, this.registerForm.value).subscribe(result => {
+      // Reload users to get the updated list without duplicate rows
+      this.getUsers();
       this.registerForm.reset();
+      this.isUpdateActive = false;  // Set update mode to false
       this.router.navigate(['/list']);
       Swal.fire('Hi', 'Enquiry Updated!', 'success');
-    })
-    
+    });
   }
+  
 }

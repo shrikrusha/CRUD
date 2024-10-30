@@ -12,6 +12,9 @@ const routes: Routes = [
     path:'register',component:CreateRegistrationComponent
   },
   {
+    path:'addenquiry',component:CreateRegistrationComponent
+  },
+  {
     path:'list',component:RegistrationListComponent
   },
   {
